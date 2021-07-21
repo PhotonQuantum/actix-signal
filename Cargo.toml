@@ -1,0 +1,2 @@
+[workspace]
+members = ["actix-signal", "actix-signal-derive"]
