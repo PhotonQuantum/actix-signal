@@ -5,7 +5,7 @@ authors = ["LightQuantum <self@lightquantum.me>"]
 edition = "2018"
 description = "Manage the lifecycle of an actix actor with its address."
 license = "MIT"
-keywords = ["actix", "actor", "lifecycle", "signal", "stop", "terminate"]
+keywords = ["actix", "actor", "lifecycle", "signal", "terminate"]
 repository = "https://github.com/PhotonQuantum/actix-signal"
 readme = "README.md"
 
