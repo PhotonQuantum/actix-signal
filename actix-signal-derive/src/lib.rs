@@ -4,7 +4,7 @@ use proc_macro::TokenStream;
 use proc_macro2::Span;
 
 use quote::quote;
-use syn::{ItemStruct, parse_macro_input, Token};
+use syn::{parse_macro_input, ItemStruct, Token};
 
 #[proc_macro_derive(SignalHandler)]
 pub fn signal_handler_derive(input: TokenStream) -> TokenStream {
@@ -14,7 +14,9 @@ pub fn signal_handler_derive(input: TokenStream) -> TokenStream {
 
     let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
-    let maybe_where = where_clause.is_none().then(|| Token![where](Span::call_site()));
+    let maybe_where = where_clause
+        .is_none()
+        .then(|| Token![where](Span::call_site()));
 
     let tokens = quote! {
         impl #impl_generics actix::Handler<actix_signal::StopSignal> for #name #ty_generics #where_clause
@@ -37,7 +39,6 @@ pub fn signal_handler_derive(input: TokenStream) -> TokenStream {
                 ctx.terminate();
             }
         }
-        impl #impl_generics actix_signal::SignalHandler for #name #ty_generics #where_clause #maybe_where Self: actix::Actor {}
     };
 
     tokens.into()

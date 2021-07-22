@@ -12,3 +12,7 @@ derive = ["actix-signal-derive"]
 [dependencies]
 actix = "0.12"
 actix-signal-derive = {version="0.1", optional=true, path="../actix-signal-derive"}
+
+[dev-dependencies]
+actix-signal-derive = {version="0.1", path="../actix-signal-derive"}
+actix-rt = "2.2"
