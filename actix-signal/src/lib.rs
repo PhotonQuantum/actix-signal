@@ -3,8 +3,8 @@
 //! If you want to stop/terminate an actor, you call [`ActorContext::stop`](actix::ActorContext::stop) or
 //! [`ActorContext::terminate`](actix::ActorContext::terminate) within its execution context.
 //!
-//! However, sometimes you have access to its address only. This crate add a bunch of methods to the address so that you
-//! may [stop](AddrSignalExt::stop) or [terminate](AddrSignalExt::terminate) the actor outside its running context.
+//! However, sometimes you have access to its address only. This crate adds a bunch of methods to the address so that
+//! you may [stop](AddrSignalExt::stop) or [terminate](AddrSignalExt::terminate) the actor outside its running context.
 //!
 //! # Example
 //!
