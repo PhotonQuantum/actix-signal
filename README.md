@@ -1,6 +1,6 @@
 # actix-signal
 
-Stop an actix actor with its address.
+Manage the lifecycle of an actix actor with its address.
 
 ## Get Started
 

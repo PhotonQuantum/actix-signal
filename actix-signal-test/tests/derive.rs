@@ -1,11 +1,13 @@
-use actix::{Actor, Context, Running};
-use actix_signal::AddrSignalExt;
-use actix_signal_derive::SignalHandler;
 use std::marker::PhantomData;
 use std::rc::Rc;
 use std::sync::atomic::AtomicU8;
 use std::sync::atomic::Ordering::SeqCst;
 use std::time::Duration;
+
+use actix::{Actor, Context, Running};
+
+use actix_signal::AddrSignalExt;
+use actix_signal_derive::SignalHandler;
 
 #[derive(SignalHandler)]
 struct MyActor;

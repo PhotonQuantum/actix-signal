@@ -1,7 +1,11 @@
 [package]
 name = "actix-signal-derive"
 version = "0.1.0"
+authors = ["LightQuantum <self@lightquantum.me>"]
 edition = "2018"
+description = "Derive macro implementation for actix-signal."
+license = "MIT"
+repository = "https://github.com/PhotonQuantum/actix-signal"
 
 [lib]
 proc-macro = true
@@ -9,4 +13,4 @@ proc-macro = true
 [dependencies]
 quote = "1"
 proc-macro2 = "1.0"
-syn = {version="1.0", features=["full"]}
+syn = { version = "1.0", features = ["full"] }

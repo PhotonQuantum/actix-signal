@@ -1,4 +1,4 @@
-//! Stop an actix actor with its address.
+//! Manage the lifecycle of an actix actor with its address.
 //!
 //! If you want to stop/terminate an actor, you call [`ActorContext::stop`](actix::ActorContext::stop) or
 //! [`ActorContext::terminate`](actix::ActorContext::terminate) within its execution context.
@@ -76,8 +76,8 @@
 #[macro_use]
 extern crate actix_signal_derive;
 
-use actix::{Actor, Handler};
 use actix::dev::ToEnvelope;
+use actix::{Actor, Handler};
 
 #[cfg(feature = "actix-signal-derive")]
 pub use actix_signal_derive::*;
@@ -101,14 +101,16 @@ impl<T> SignalHandler for T where T: Handler<StopSignal> + Handler<TerminateSign
 /// [`signals`](signals).
 /// See top-level document for instructions on implementing these traits.
 pub trait ToSignalEnvelope<A>: ToEnvelope<A, StopSignal> + ToEnvelope<A, TerminateSignal>
-    where
-        A: Actor + SignalHandler,
-        <A as Actor>::Context: ToSignalEnvelope<A>,
-{}
+where
+    A: Actor + SignalHandler,
+    <A as Actor>::Context: ToSignalEnvelope<A>,
+{
+}
 
 impl<A, T> ToSignalEnvelope<A> for T
-    where
-        A: Actor<Context=T> + SignalHandler,
-        T: ToEnvelope<A, StopSignal> + ToEnvelope<A, TerminateSignal>,
-        <A as Actor>::Context: ToEnvelope<A, StopSignal> + ToEnvelope<A, TerminateSignal>,
-{}
+where
+    A: Actor<Context = T> + SignalHandler,
+    T: ToEnvelope<A, StopSignal> + ToEnvelope<A, TerminateSignal>,
+    <A as Actor>::Context: ToEnvelope<A, StopSignal> + ToEnvelope<A, TerminateSignal>,
+{
+}
