@@ -6,6 +6,8 @@
 //! However, sometimes you have access to its address only. This crate adds a bunch of methods to the address so that
 //! you may [stop](AddrSignalExt::stop) or [terminate](AddrSignalExt::terminate) the actor outside its running context.
 //!
+//! *Minimum supported rust version: 1.50.0*
+//!
 //! # Example
 //!
 //! ```
