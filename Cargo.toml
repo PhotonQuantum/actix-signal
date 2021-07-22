@@ -1,2 +1,2 @@
 [workspace]
-members = ["actix-signal", "actix-signal-derive"]
+members = ["actix-signal", "actix-signal-derive", "actix-signal-test"]
