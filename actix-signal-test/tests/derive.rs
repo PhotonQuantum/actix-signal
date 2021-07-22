@@ -1,5 +1,5 @@
-use actix::{Actor, Context, Handler};
-use actix_signal::{AddrSignalExt, SignalHandler, StopSignal};
+use actix::{Actor, Context};
+use actix_signal::AddrSignalExt;
 use actix_signal_derive::SignalHandler;
 use std::marker::PhantomData;
 

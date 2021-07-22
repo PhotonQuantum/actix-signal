@@ -1,4 +1,4 @@
-use actix::{Actor, Handler, Message};
+use actix::{Actor, Handler};
 use actix::dev::ToEnvelope;
 
 pub use addr::*;
@@ -24,3 +24,10 @@ impl<A, T> ToSignalEnvelope<A> for T
         <A as Actor>::Context: ToEnvelope<A, StopSignal>,
         <A as Actor>::Context: ToEnvelope<A, TerminateSignal>
 {}
+
+// Re-export #[derive(SignalHandler)].
+#[cfg(feature = "derive")]
+#[macro_use]
+extern crate actix_signal_derive;
+#[cfg(feature = "derive")]
+pub use actix_signal_derive::*;

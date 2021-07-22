@@ -1,7 +1,6 @@
-use actix::{Actor, Addr, Context};
+use actix::{Actor, Addr};
 
 use crate::{SignalHandler, StopSignal, ToSignalEnvelope, TerminateSignal};
-use actix::dev::ToEnvelope;
 
 pub trait AddrSignalExt {
     fn stop(&self);

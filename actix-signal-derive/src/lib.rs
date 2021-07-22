@@ -4,7 +4,7 @@ use proc_macro::TokenStream;
 use proc_macro2::Span;
 
 use quote::quote;
-use syn::{ItemStruct, parse_macro_input, PredicateType, Type, WherePredicate, Token};
+use syn::{ItemStruct, parse_macro_input, Token};
 
 #[proc_macro_derive(SignalHandler)]
 pub fn signal_handler_derive(input: TokenStream) -> TokenStream {
