@@ -85,22 +85,24 @@ pub use addr::*;
 pub use signals::*;
 
 mod addr;
+mod private;
 pub mod signals;
 
 /// Actors that are able to handle signals.
 ///
-/// This trait is automatically implemented for actors implementing `Handler`s for [`signals`](signals).
+/// This trait is sealed and automatically implemented for actors implementing `Handler`s for [`signals`](signals).
 /// See top-level document for instructions on implementing these traits.
-pub trait SignalHandler: Handler<StopSignal> + Handler<TerminateSignal> {}
+pub trait SignalHandler: Handler<StopSignal> + Handler<TerminateSignal> + private::Sealed {}
 
 impl<T> SignalHandler for T where T: Handler<StopSignal> + Handler<TerminateSignal> {}
 
 /// Execution contexts that are able to handle signals.
 ///
-/// This trait is automatically implemented for contexts of which the associated actors implement `Handler`s for
-/// [`signals`](signals).
+/// This trait is sealed and automatically implemented for contexts of which the associated actors implement `Handler`s
+/// for [`signals`](signals).
 /// See top-level document for instructions on implementing these traits.
-pub trait ToSignalEnvelope<A>: ToEnvelope<A, StopSignal> + ToEnvelope<A, TerminateSignal>
+pub trait ToSignalEnvelope<A>:
+    ToEnvelope<A, StopSignal> + ToEnvelope<A, TerminateSignal> + private::Sealed
 where
     A: Actor + SignalHandler,
     <A as Actor>::Context: ToSignalEnvelope<A>,
