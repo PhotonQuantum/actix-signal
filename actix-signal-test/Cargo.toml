@@ -11,5 +11,5 @@ publish = false
 [dev-dependencies]
 actix-signal = { path = "../actix-signal" }
 actix-signal-derive = { path = "../actix-signal-derive" }
-actix = "0.12"
+actix = "0.13"
 actix-rt = "2.2"

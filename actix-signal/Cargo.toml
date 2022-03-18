@@ -14,7 +14,7 @@ readme = "README.md"
 derive = ["actix-signal-derive"]
 
 [dependencies]
-actix = "0.12"
+actix = "0.13"
 actix-signal-derive = { version = "0.1", optional = true, path = "../actix-signal-derive" }
 
 [dev-dependencies]
