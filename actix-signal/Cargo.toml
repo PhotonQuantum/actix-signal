@@ -19,4 +19,4 @@ actix-signal-derive = { version = "0.1", optional = true, path = "../actix-signa
 
 [dev-dependencies]
 actix-signal-derive = { version = "0.1", path = "../actix-signal-derive" }
-actix-rt = "2.2"
+actix-rt = "2.9"

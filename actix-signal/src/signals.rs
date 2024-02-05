@@ -11,7 +11,7 @@ use actix::Message;
 /// Normally you should use [`AddrSignalExt::stop`](crate::AddrSignalExt::stop) method instead of
 /// sending it to actors directly.
 #[derive(Debug, Copy, Clone, Message)]
-#[rtype("()")]
+#[rtype(result = "()")]
 pub struct StopSignal;
 
 /// Terminates the actor receiving this signal.
@@ -19,5 +19,5 @@ pub struct StopSignal;
 /// Normally you should use [`AddrSignalExt::terminate`](crate::AddrSignalExt::terminate) method
 /// instead of sending it to actors directly.
 #[derive(Debug, Copy, Clone, Message)]
-#[rtype("()")]
+#[rtype(result = "()")]
 pub struct TerminateSignal;
