@@ -1,6 +1,6 @@
 [package]
 name = "actix-signal"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["LightQuantum <self@lightquantum.me>"]
 edition = "2018"
 description = "Manage the lifecycle of an actix actor with its address."
